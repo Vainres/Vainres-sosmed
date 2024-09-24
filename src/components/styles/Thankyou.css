@@ -1,7 +1,6 @@
 .thankyou-container {
   text-align: center;
   position: relative;
-  padding: 50px;
 }
 
 .thankyou-image {
@@ -14,10 +13,10 @@
 }
 
 .thankyou-text {
-  color: pink;
+  color: rgb(255, 106, 131);
   font-size: 7rem;
   font-family: "Cursive", sans-serif; /* Fancy font for a playful look */
-  text-shadow: 3px 3px 10px rgba(255, 182, 193, 0.8); /* Pink shadow effect */
+  text-shadow: 3px 3px 10px rgba(255, 119, 139, 0.8); /* Pink shadow effect */
   margin-bottom: 20px;
 }
 
@@ -61,4 +60,17 @@
   color: #ff69b4; /* Lighter pink when hovered */
   transform: scale(1.2); /* Slightly enlarge on hover */
   transition: transform 0.2s ease-in-out;
+}
+
+.icon-container-bottom {
+  position: relative; /* Important for absolute child positioning */
+  width: 100%;
+  height: 200px; /* Adjust height to control how much space the icons have to move */
+}
+
+.icon-random {
+  position: absolute;
+  transition: all 0.5s ease; /* Smooth transition if you want animations */
+  font-size: 2rem; /* Icon size, adjust as necessary */
+  color: pink;
 }
