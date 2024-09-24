@@ -5,8 +5,10 @@ import dayjs from "dayjs";
 import HeartButton from "../components/HeartButton/HeartButton";
 import { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
+import { useNavigate } from "react-router";
 
 const Question = () => {
+  const navigate = useNavigate();
   const [dateTime, setDateTime] = useState<{
     date: dayjs.Dayjs | null;
     time: dayjs.Dayjs | null;
@@ -41,6 +43,7 @@ const Question = () => {
         "dateTime",
         JSON.stringify({ date: formattedDate, time: formattedTime })
       );
+      navigate("/choose");
     } else {
       toast.success("Please select both date and time. (╥_╥)", {
         style: {

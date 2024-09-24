@@ -1,4 +1,3 @@
-import HeartAnimation from "../components/HeartAnimation";
 import Layout from "../layouts/layout";
 import img1 from "../assets/img/happy-cat.gif";
 import { FaHeart, FaStar, FaRibbon } from "react-icons/fa"; // Import icons from react-icons
@@ -27,7 +26,6 @@ const Thankyou = () => {
   return (
     <Layout>
       <div className="thankyou-container">
-        <HeartAnimation />
         <div className="icon-container">
           <FaHeart className="heart-icon" />
           <FaStar className="star-icon" />
