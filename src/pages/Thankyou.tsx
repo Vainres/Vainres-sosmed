@@ -42,7 +42,9 @@ const Thankyou = () => {
             boxShadow: "0 0 20px pink",
           }}
         />
-        <h2 className="thankyou-text">See you soon pookie</h2>
+        <h2 style={{ fontSize: "4rem" }} className="thankyou-text">
+          See you soon!❤️
+        </h2>
         {dateTime.date && dateTime.time && (
           <h1 className="thankyou-text">
             Don't forget on {dateTime.date} at {dateTime.time}

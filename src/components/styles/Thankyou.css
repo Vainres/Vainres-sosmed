@@ -1,6 +1,7 @@
 .thankyou-container {
   text-align: center;
   position: relative;
+  width: 80vw;
 }
 
 .thankyou-image {
@@ -14,7 +15,6 @@
 
 .thankyou-text {
   color: rgb(255, 106, 131);
-  font-size: 7rem;
   font-family: "Cursive", sans-serif; /* Fancy font for a playful look */
   text-shadow: 3px 3px 10px rgba(255, 119, 139, 0.8); /* Pink shadow effect */
   margin-bottom: 20px;
