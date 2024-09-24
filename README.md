@@ -1,6 +1,6 @@
 # React + TypeScript + Vite
 
-https://project-sosmed-4a61cv80z-orpheros-projects.vercel.app/
+HOST: https://project-sosmed-4a61cv80z-orpheros-projects.vercel.app/
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
