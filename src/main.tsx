@@ -4,11 +4,26 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import React from "react";
 import Home from "./pages/Home.tsx";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Question from "./pages/Question.tsx";
+import Date from "./pages/Date.tsx";
+import Thankyou from "./pages/Thankyou.tsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
+  },
+  {
+    path: "/date",
+    element: <Question />,
+  },
+  {
+    path: "/choose",
+    element: <Date />,
+  },
+  {
+    path: "/thankyou",
+    element: <Thankyou />,
   },
 ]);
 
