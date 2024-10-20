@@ -89,6 +89,7 @@ const DateComponent = () => {
       const stringData = {
         food: localStorage.getItem("food"),
         movie: localStorage.getItem("movie"),
+        drink: localStorage.getItem("drink"),
         dateTime: localStorage.getItem("dateTime"),
         setTime: formattedDate
       };
@@ -101,6 +102,7 @@ const DateComponent = () => {
         "food",
         JSON.stringify({ food: selectedCards.map(obj => foodData[obj])})
       );
+      setSelectedCards([])
       setSelectedCategory("drink");
     console.log("category in food",selectedCategory)
   }
@@ -108,10 +110,11 @@ const DateComponent = () => {
     console.log("category in drink",selectedCategory)
       localStorage.setItem(
         "drink",
-        JSON.stringify({ food: selectedCards.map(obj => drinkData[obj])})
+        JSON.stringify({ drink: selectedCards.map(obj => drinkData[obj])})
       );
+      setSelectedCards([])
+      setSelectedCategory("movie");
     }
-    setSelectedCategory("movie");
   };
 
   const foodData = [
