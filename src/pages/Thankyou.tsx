@@ -43,11 +43,11 @@ const Thankyou = () => {
           }}
         />
         <h2 style={{ fontSize: "4rem" }} className="thankyou-text">
-          Quốc tế phụ nữ 20/10 chúc em luôn vui vẻ, hạnh phúc nha!❤️
+          Quốc tế phụ nữ 20/10 chúc em iu luôn vui vẻ, hạnh phúc nha!❤️
         </h2>
         {dateTime.date && dateTime.time && (
           <h1 className="thankyou-text">
-            Hẹn gặp em iu lúc {dateTime.date} {dateTime.time}
+            Hẹn gặp em iu lúc {dateTime.date} {dateTime.time} 😍😍😍
           </h1>
         )}
         <div className="icon-container-bottom">
