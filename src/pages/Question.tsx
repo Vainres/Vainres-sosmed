@@ -77,7 +77,7 @@ const Question = () => {
               width: "100%",
               marginTop: "1.3rem",
             }}
-            text="(づ￣ ³￣)づ CLICK ME"
+            text="(づ￣ ³￣)づ Bấm vào đây"
             onClick={nextQuestion}
           />
           <div>
