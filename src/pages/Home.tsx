@@ -122,9 +122,7 @@ const Home = () => {
                   transition: "transform 0.5s ease-in-out",
                   width: "100%",
                 }}
-                text="
-           ▂▃▄▅▆▇█▓▒░˗ˋˏ ♡ ˎˊ˗Bấm vào đây˗ˋˏ ♡ ˎˊ˗░▒▓█▇▆▅▄▃▂
-                "
+                text="ˋˏ ♡ ˎˊBấm vào đâyˋˏ ♡ ˎˊ"
                 onClick={() => navigate("/date")}
               />
             ) : (
