@@ -44,6 +44,7 @@ const Thankyou = () => {
         />
         <h2 style={{ fontSize: "4rem" }} className="thankyou-text">
         🥳Quốc tế phụ nữ 20/10 chúc em iu luôn vui vẻ, hạnh phúc nha!❤️
+        Xin lũi em iu vì tận bây giờ mới gửi 🥺. Từ bây giờ anh sẽ cố gắng không làm em buồn nữa đâu😇
         </h2>
         {dateTime.date && dateTime.time && (
           <h1 className="thankyou-text">
