@@ -5,7 +5,7 @@ import React from "react";
 import Home from "./pages/Home.tsx";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Question from "./pages/Question.tsx";
-import Date from "./pages/Date.tsx";
+import DateComponent from "./pages/Date.tsx";
 import Thankyou from "./pages/Thankyou.tsx";
 
 const router = createBrowserRouter([
@@ -19,7 +19,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/choose",
-    element: <Date />,
+    element: <DateComponent />,
   },
   {
     path: "/thankyou",

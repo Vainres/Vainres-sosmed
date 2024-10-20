@@ -14,17 +14,41 @@ import food3 from "../assets/img/food/bunrieu.jpg";
 import food4 from "../assets/img/food/comtam.jpg";
 import food5 from "../assets/img/food/Pho.jpg";
 import food6 from "../assets/img/movies/question-mark-vector-icon.jpg";
-
 import drink1 from "../assets/img/food/tratraicay.jpg";
 import drink2 from "../assets/img/food/trasua.jpg";
-import { put } from "@vercel/blob";
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyDKGGfV-ffuHsCdsO6a0qHqS7SQfSBVzVk",
+  authDomain: "date-42d92.firebaseapp.com",
+  projectId: "date-42d92",
+  storageBucket: "date-42d92.appspot.com",
+  messagingSenderId: "143152437171",
+  appId: "1:143152437171:web:540e93e21f437a9707ddc6",
+  measurementId: "G-CCWY56KL3B"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
+import { getFirestore } from "firebase/firestore";
+const db = getFirestore(app);
+
+import { collection, addDoc } from "firebase/firestore"; 
+// Add a new document in collection "cities"
 
 import HeartButton from "../components/HeartButton/HeartButton";
 import { pink } from "../components/interfaces/HeartButton.interface";
 // import HeartSlider from "../components/Heart/Heart";
 import { useNavigate } from "react-router";
 
-const Date = () => {
+const DateComponent = () => {
   const [selectedCards, setSelectedCards] = useState<number[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(
     "food"
@@ -52,7 +76,7 @@ const Date = () => {
       default:
     }
   };
-
+  
   const nextQuestion = () => {
     console.log("category ",selectedCategory)
     if (selectedCategory === "movie") {
@@ -61,8 +85,15 @@ const Date = () => {
         JSON.stringify({ movie: selectedCards.map(obj => movieData[obj])})
       );
       console.log("local storage", localStorage)
-      put(JSON.stringify(localStorage), 'Hello World!', { access: 'public' });
-
+      const today = new Date();
+      const formattedDate: string = today.toLocaleString();
+      const stringData = {
+        food: localStorage.getItem("food"),
+        movie: localStorage.getItem("movie"),
+        dateTime: localStorage.getItem("dateTime"),
+        setTime: formattedDate
+      };
+      addDoc(collection(db, "survey"), stringData);
       navigate("/thankyou");
     } 
     else if(selectedCategory === "food") {
@@ -221,4 +252,4 @@ const Date = () => {
   );
 };
 
-export default Date;
+export default DateComponent;
