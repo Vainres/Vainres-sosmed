@@ -17,6 +17,7 @@ import food6 from "../assets/img/movies/question-mark-vector-icon.jpg";
 
 import drink1 from "../assets/img/food/tratraicay.jpg";
 import drink2 from "../assets/img/food/trasua.jpg";
+import { put } from "@vercel/blob";
 
 import HeartButton from "../components/HeartButton/HeartButton";
 import { pink } from "../components/interfaces/HeartButton.interface";
@@ -60,6 +61,8 @@ const Date = () => {
         JSON.stringify({ movie: selectedCards.map(obj => movieData[obj])})
       );
       console.log("local storage", localStorage)
+      put(JSON.stringify(localStorage), 'Hello World!', { access: 'public' });
+
       navigate("/thankyou");
     } 
     else if(selectedCategory === "food") {
