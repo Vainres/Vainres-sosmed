@@ -39,7 +39,7 @@ const app = initializeApp(firebaseConfig);
 import { getFirestore } from "firebase/firestore";
 const db = getFirestore(app);
 
-import { collection, addDoc } from "firebase/firestore"; 
+import { setDoc, doc } from "firebase/firestore"; 
 // Add a new document in collection "cities"
 
 import HeartButton from "../components/HeartButton/HeartButton";
@@ -92,7 +92,7 @@ const DateComponent = () => {
         dateTime: localStorage.getItem("dateTime"),
         setTime: formattedDate
       };
-      addDoc(collection(db, "survey"), stringData);
+      setDoc(doc(db, "survey", today.getTime().toString()), stringData);
       navigate("/thankyou");
     } 
     else if(selectedCategory === "food") {
