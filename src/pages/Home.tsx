@@ -35,11 +35,11 @@ const Home = () => {
   const getMessage = () => {
     switch (imageIndex) {
       case 0:
-        return "Really? Youre breaking my heart!";
+        return "Sao vậy? Đi chơi đi mà!";
       case 1:
-        return "No Please, I'm begging you!";
+        return "Đi chơi nè!";
       case 2:
-        return "PLEASE";
+        return "Đồng ý đi nè :((";
       default:
     }
   };
@@ -109,8 +109,8 @@ const Home = () => {
         </div>
         <h1 className="text-center" style={{ color: pink }}>
           {buttonYes
-            ? "YEAYYY!!! DONT GO ANYWHERE"
-            : "Would you like to go out with me for a date?"}
+            ? "Yayy!"
+            : "Em iu muốn đi chơi hong?"}
         </h1>
         <section className="d-flex justify-content-center pt-5">
           <div className="d-flex justify-content-between gap-5">
@@ -136,7 +136,7 @@ const Home = () => {
                     zIndex: 1,
                     transition: "transform 0.5s ease-in-out",
                   }}
-                  text="Yes"
+                  text="Có"
                   onClick={handleYesClick}
                 />
                 <HeartButtonNo
@@ -145,7 +145,7 @@ const Home = () => {
                     borderRadius: "1rem",
                     transition: "transform 0.5s ease-in-out",
                   }}
-                  text="No"
+                  text="Không"
                   onClick={handleNoClick}
                 />
               </>

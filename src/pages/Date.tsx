@@ -1,24 +1,26 @@
 import { useState } from "react";
 import CardComponent from "../components/Card/Card";
 import Layout from "../layouts/layout";
-import food1 from "../assets/img/food/food1.jpg";
-import food2 from "../assets/img/food/food2.jpg";
-import food3 from "../assets/img/food/food3.jpg";
-import food4 from "../assets/img/food/food4.jpg";
-import food5 from "../assets/img/food/food5.jpg";
-import food6 from "../assets/img/food/food6.jpg";
+import mov1 from "../assets/img/movies/Joker2.jpg";
+import mov2 from "../assets/img/movies/acquytruyhon.jpg";
+import mov3 from "../assets/img/movies/quytreodau.png";
+import mov4 from "../assets/img/movies/venom.jpg";
+import mov5 from "../assets/img/movies/Transformerone.jpg";
+import mov6 from "../assets/img/movies/question-mark-vector-icon.jpg";
 
-import mov1 from "../assets/img/movies/img1.jpg";
-import mov2 from "../assets/img/movies/img2.jpg";
-import mov3 from "../assets/img/movies/img3.jpg";
-import mov4 from "../assets/img/movies/img4.jpg";
-import mov5 from "../assets/img/movies/img5.jpg";
-import mov6 from "../assets/img/movies/img6.jpg";
+import food1 from "../assets/img/food/Banhcanh.jpg";
+import food2 from "../assets/img/food/bunbo.jpg";
+import food3 from "../assets/img/food/bunrieu.jpg";
+import food4 from "../assets/img/food/comtam.jpg";
+import food5 from "../assets/img/food/Pho.jpg";
+import food6 from "../assets/img/movies/question-mark-vector-icon.jpg";
 
-import img1 from "../assets/img/cat-jump.gif";
+import drink1 from "../assets/img/food/tratraicay.jpg";
+import drink2 from "../assets/img/food/trasua.jpg";
+
 import HeartButton from "../components/HeartButton/HeartButton";
 import { pink } from "../components/interfaces/HeartButton.interface";
-import HeartSlider from "../components/Heart/Heart";
+// import HeartSlider from "../components/Heart/Heart";
 import { useNavigate } from "react-router";
 
 const Date = () => {
@@ -41,68 +43,86 @@ const Date = () => {
   const getTitle = () => {
     switch (selectedCategory) {
       case "food":
-        return "What do you want to eat ?";
+        return "Muốn ăn gì nè ?";
+      case "drink":
+          return "Muốn uống gì hong?";
       case "movie":
-        return "What movie do you want to watch ?";
+        return "Muốn coi gì hong?";
       default:
     }
   };
 
   const nextQuestion = () => {
-    if (selectedCategory === "rate") {
+    console.log("category ",selectedCategory)
+    if (selectedCategory === "movie") {
+      localStorage.setItem(
+        "movie",
+        JSON.stringify({ movie: selectedCards.map(obj => movieData[obj])})
+      );
+      console.log("local storage", localStorage)
       navigate("/thankyou");
-    } else {
-      if (selectedCategory === "movie") {
-        setSelectedCategory("rate");
-      } else {
-        setSelectedCategory("movie");
-      }
+    } 
+    else if(selectedCategory === "food") {
+    console.log("category in food",selectedCategory)
+      localStorage.setItem(
+        "food",
+        JSON.stringify({ food: selectedCards.map(obj => foodData[obj])})
+      );
+      setSelectedCategory("drink");
+    console.log("category in food",selectedCategory)
+  }
+    else if(selectedCategory === "drink") {
+    console.log("category in drink",selectedCategory)
+      localStorage.setItem(
+        "drink",
+        JSON.stringify({ food: selectedCards.map(obj => drinkData[obj])})
+      );
     }
-    setSelectedCards([]);
+    setSelectedCategory("movie");
   };
 
   const foodData = [
     {
-      title: "Pancake",
+      title: "Bánh canh ghẹ",
       image: food1,
     },
     {
-      title: "Fried Rice",
+      title: "Bún bò",
       image: food2,
     },
     {
-      title: "Salmon",
+      title: "Bún riêu",
       image: food3,
     },
     {
-      title: "Steak",
+      title: "Cơm tấm",
       image: food4,
     },
     {
-      title: "Burger and Fries",
+      title: "Phở",
       image: food5,
     },
     {
-      title: "Pizza",
+      title: "Ăn gì cũng được XD",
       image: food6,
     },
   ];
 
   const movieData = [
     {
-      title: "Beetlejuice Beetlejuice",
+      title: "Joker 2",
       image: mov1,
     },
     {
-      title: "Dul Muluk Dul Malik",
+      title: "Ác quỷ truy hồn",
       image: mov2,
     },
     {
-      title: "Hellboy: The Crooked Man",
+      title: "Qủy treo đầu",
       image: mov3,
     },
     {
-      title: "Never Let Go",
+      title: "Venom: Kèo Cuối",
       image: mov4,
     },
     {
@@ -110,17 +130,38 @@ const Date = () => {
       image: mov5,
     },
     {
-      title: "Deadpool & Wolverine",
+      title: "Phim khác",
       image: mov6,
     },
   ];
 
+  const drinkData = [
+    {
+      title: "Trà trái cây",
+      image: drink1,
+    },
+    {
+      title: "Trà sữa",
+      image: drink2,
+    },
+  ];
   return (
     <Layout>
       <h1 style={{ color: pink }}>{getTitle()}</h1>
       <main className="d-flex flex-wrap justify-content-center mt-3">
         {selectedCategory === "food" &&
           foodData.map((card, index) => (
+            <div key={index} className="m-2">
+              <CardComponent
+                title={card.title}
+                image={card.image}
+                isSelected={selectedCards.includes(index)}
+                onClick={() => handleCardClick(index)}
+              />
+            </div>
+          ))}
+        {selectedCategory === "drink" &&
+          drinkData.map((card, index) => (
             <div key={index} className="m-2">
               <CardComponent
                 title={card.title}
@@ -141,7 +182,8 @@ const Date = () => {
               />
             </div>
           ))}
-        {selectedCategory === "rate" && (
+
+        {/* {selectedCategory === "rate" && (
           <>
             <div className="d-flex flex-column justify-content-center">
               <img
@@ -160,7 +202,7 @@ const Date = () => {
             </div>
             <HeartSlider></HeartSlider>
           </>
-        )}
+        )} */}
       </main>
       <HeartButton
         style={{
@@ -169,7 +211,7 @@ const Date = () => {
           margin: "0 auto",
           marginTop: "2rem",
         }}
-        text="Continue ⊂(・ヮ・⊂)"
+        text="Tiếp tục ⊂(・ヮ・⊂)"
         onClick={nextQuestion}
       />
     </Layout>

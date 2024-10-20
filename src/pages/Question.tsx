@@ -45,7 +45,7 @@ const Question = () => {
       );
       navigate("/choose");
     } else {
-      toast.success("Please select both date and time. (╥_╥)", {
+      toast.success("Chọn ngày và giờ luôn. (╥_╥)", {
         style: {
           border: "1px solid pink",
           padding: "16px",
@@ -64,7 +64,7 @@ const Question = () => {
       <main className="d-flex justify-content-center">
         <section>
           <h1 className="text-center" style={{ color: pink }}>
-            When are you free ?
+            {"Đi lúc nào nè <3"}
           </h1>
           <section className="d-flex gap-3 pt-3">
             <DatePicker size="large" onChange={onChangeDate} />
