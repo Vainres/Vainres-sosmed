@@ -64,7 +64,7 @@ const Question = () => {
       <main className="d-flex justify-content-center">
         <section>
           <h1 className="text-center" style={{ color: pink }}>
-            {"Đi lúc nào nè <3"}
+            {"Đi lúc nào nè 🤔"}
           </h1>
           <section className="d-flex gap-3 pt-3">
             <DatePicker size="large" onChange={onChangeDate} />

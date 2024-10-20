@@ -67,11 +67,11 @@ const DateComponent = () => {
   const getTitle = () => {
     switch (selectedCategory) {
       case "food":
-        return "Muốn ăn gì nè ?";
+        return "Muốn ăn gì nè?🤤";
       case "drink":
-          return "Muốn uống gì hong?";
+          return "Muốn uống gì hong?😋";
       case "movie":
-        return "Muốn coi gì hong?";
+        return "Muốn coi gì hong?😤";
       default:
     }
   };
